@@ -11,18 +11,18 @@ export default function Home() {
 
 const Hero = () => {
   return (
-    <header className='w-full max-w-[1472px] md:px-8 px-3 pt-6 mx-auto'>
-      <div className='rounded-xl overflow-hidden relative aspect-[11/5]'>
+    <header className='mx-auto w-full max-w-[1472px] px-3 pt-6 md:px-8'>
+      <div className='relative aspect-[11/5] overflow-hidden rounded-xl'>
         <Image
           alt='Manhattan background'
           src={hero_background}
           quality={100}
-          className='absolute h-full object-cover w-full'
+          className='absolute h-full w-full object-cover'
         />
-        <div className='w-full h-full absolute flex flex-col justify-center'>
-          <div className='mb-12 mx-auto md:px-8 px-3 max-w-[1272px] w-full'>
+        <div className='absolute flex h-full w-full flex-col justify-center'>
+          <div className='mx-auto mb-12 w-full max-w-[1272px] px-3 md:px-8'>
             <span className='text-white underline'>AOM Services</span>
-            <h1 className='text-white text-6xl max-w-[680px] font-bold'>
+            <h1 className='max-w-[680px] text-6xl font-bold text-white'>
               Streamline Filings for Your Business
             </h1>
           </div>
