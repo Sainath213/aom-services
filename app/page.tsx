@@ -5,6 +5,15 @@ export default function Home() {
   return (
     <main className='flex flex-col items-center justify-between'>
       <Hero />
+      <Services />
+      <Services />
+      <Services />
+      <Services />
+      <Services />
+      <Services />
+      <Services />
+      <Services />
+      <Services />
     </main>
   );
 }
@@ -12,7 +21,7 @@ export default function Home() {
 const Hero = () => {
   return (
     <header className='mx-auto w-full max-w-[1472px] px-3 pt-6 md:px-8'>
-      <div className='relative aspect-[11/5] overflow-hidden rounded-xl'>
+      <div className='relative aspect-[11/5] overflow-hidden rounded-xl md:rounded-3xl'>
         <Image
           alt='Manhattan background'
           src={hero_background}
@@ -29,5 +38,14 @@ const Hero = () => {
         </div>
       </div>
     </header>
+  );
+};
+
+const Services = () => {
+  return (
+    <div className='mx-auto mb-12 w-full max-w-[1272px] px-3 md:px-8'>
+      <span className='underline'>Works</span>
+      <h1 className='max-w-[680px] text-6xl font-bold'>Services</h1>
+    </div>
   );
 };
