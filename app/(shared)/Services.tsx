@@ -14,7 +14,7 @@ export default function Services() {
         <span className='font-semibold tracking-[2.6px] text-[#2F4C77]'>
           WORKS
         </span>
-        <h2 className='text-4xl font-bold md:text-5xl'>Services</h2>
+        <h2 className='font-serif text-4xl font-bold md:text-5xl'>Services</h2>
       </div>
       <ul className='grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16'>
         <Card
