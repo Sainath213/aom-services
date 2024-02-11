@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -14,9 +14,9 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,10 +24,95 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
+
+
+/* navbar */
+
+.navbar-scrolled-bg {
+  background: #00000050;
+  backdrop-filter: blur(4px);
+}
+
+.burguer-menu {
+  padding: 6px;
+  margin: -6px;
+  margin-left: auto;
+}
+
+.burguer-menu svg * {
+  transition: 300ms ease-in-out;
+}
+
+/* closed */
+
+.burguer-menu-closed .middleBar {
+  stroke: #ffffff;
+  transform: none;
+}
+
+.burguer-menu-closed .bottomBar {
+  transform: rotate(none);
+  width: 19px;
+}
+
+.burguer-menu-closed .topBar {
+  transform: rotate(none);
+  width: 19px;
+}
+
+/* open */
+
+.burguer-menu-open * {
+  stroke: #050505;
+}
+
+.burguer-menu-open .middleBar {
+  stroke: transparent;
+  transform: translateX(25px);
+}
+.burguer-menu-open .bottomBar {
+  transform: rotate(-43deg) translateX(-15px) translateY(-1px);
+  width: 24px;
+}
+.burguer-menu-open .topBar {
+  transform: rotate(43deg) translateX(6.5px) translateY(-6.5px);
+  width: 26px;
+}
+
+/* .hero-wrapper {
+  perspective: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+.header {
+  position: relative;
+  height: 100vh;
+  transform-style: preserve-3d;
+  z-index: -1;
+}
+
+.background,
+.foreground {
+  position: absolute;
+  height: 100vh;
+  width: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.background {
+  transform: translateZ(-10px);
+}
+
+.foreground {
+  transform: translateZ(-5px);
+} */

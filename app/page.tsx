@@ -1,9 +1,11 @@
-import Image from 'next/image';
+import Hero from '@/app/(shared)/Hero';
+import Services from '@/app/(shared)/Services';
 
 export default function Home() {
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <h1>This website is under development</h1>
+    <main className='flex flex-col items-center justify-between gap-16 md:gap-32'>
+      <Hero />
+      <Services />
     </main>
   );
 }
