@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import hero_background from '@/public/hero_background.png';
+import Services from '@/app/(shared)/Services';
 
 export default function Home() {
   return (
     <main className='flex flex-col items-center justify-between'>
       <Hero />
+      <Services />
     </main>
   );
 }
