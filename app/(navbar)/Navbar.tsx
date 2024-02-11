@@ -23,18 +23,18 @@ export default function Navbar() {
     <>
       <nav className='w-full fixed top-0 left-0 md:px-8 px-6 pt-12 items-center z-10'>
         <div className='flex justify-between items-center mx-auto max-w-[1272px] z-50'>
-          <Link href={'#'}>
+          <Link href={'#home'}>
             <NavbarIcon />
           </Link>
           <ul className='text-base md:flex hidden gap-10 text-white'>
             <li>
-              <Link href={'#'} className='hover:underline'>HOME</Link>
+              <Link href='#home' className='hover:underline'>HOME</Link>
             </li>
             <li>
-              <Link href={'#'} className='hover:underline'>ABOUT US</Link>
+              <Link href={'#services'} className='hover:underline'>SERVICES</Link>
             </li>
             <li>
-              <Link href={'#'} className='hover:underline'>CONTACT US</Link>
+              <Link href={'#contact'} className='hover:underline'>CONTACT</Link>
             </li>
           </ul>
           {/* nav mobile */}
@@ -52,18 +52,18 @@ export default function Navbar() {
         {mobileOpen ? (
           <div className='fixed h-full w-full top-0 left-0 text-center bg-white flex flex-col z-10 justify-center md:hidden pt-[40px]'>
             <ul className='flex flex-col gap-8 mb-10'>
-              <NavMobileLink href={'#home'} onClick={closeNavbar} delay={0.1}>
+              <NavMobileLink href='#home' onClick={closeNavbar} delay={0.1}>
                 Home
               </NavMobileLink>
-              <NavMobileLink href={'#about'} onClick={closeNavbar} delay={0.2}>
-                About Us
+              <NavMobileLink href='#services' onClick={closeNavbar} delay={0.2}>
+                Services
               </NavMobileLink>
               <NavMobileLink
-                href={'#portfolio'}
+                href='#contact'
                 onClick={closeNavbar}
                 delay={0.3}
               >
-                Portfolio
+                Contact
               </NavMobileLink>
             </ul>
           </div>
