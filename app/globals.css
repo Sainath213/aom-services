@@ -69,6 +69,10 @@
 
 /* open */
 
+.burguer-menu-open * {
+  stroke: #050505;
+}
+
 .burguer-menu-open .middleBar {
   stroke: transparent;
   transform: translateX(25px);
