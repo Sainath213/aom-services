@@ -1,4 +1,5 @@
 import Contact from '@/app/(shared)/Contact';
+import Footer from '@/app/(shared)/Footer';
 import Hero from '@/app/(shared)/Hero';
 import Services from '@/app/(shared)/Services';
 
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <Services />
       <Contact />
+      <Footer />
     </main>
   );
 }
