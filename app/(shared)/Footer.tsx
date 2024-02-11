@@ -8,7 +8,6 @@ export default function Footer() {
         rel='noopener noreferrer'
       >
         Powered by{' '}
-        <img src='/vercel.svg' alt='Vercel Logo' className='ml-2 h-4' />
       </a>
     </footer>
   );
