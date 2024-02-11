@@ -21,8 +21,8 @@ export default function Navbar() {
   /////////////NavbarDesktop
   return (
     <>
-      <nav>
-        <div className='max-w-[1272px] w-full fixed top-0 left-0 mx-auto md:px-8 px-6 pt-12 flex justify-between items-center z-[9999]'>
+      <nav className='w-full fixed top-0 left-0 md:px-8 px-6 pt-12 items-center'>
+        <div className='flex justify-between items-center mx-auto max-w-[1272px] z-50'>
           <Link href={'#'}>
             <NavbarIcon />
           </Link>
@@ -40,7 +40,7 @@ export default function Navbar() {
           {/* nav mobile */}
           <button
             className={cn(
-              'md:hidden flex burguer-menu',
+              'md:hidden flex burguer-menu z-[9999]',
               mobileOpen ? 'burguer-menu-open' : 'burguer-menu-closed'
             )}
             onClick={toggleMenu}
@@ -50,7 +50,7 @@ export default function Navbar() {
           {/* nav mobile */}
         </div>
         {mobileOpen ? (
-          <div className='fixed h-full w-full top-0 left-0 text-center bg-[#050505] flex flex-col z-50 justify-center md:hidden pt-[40px]'>
+          <div className='fixed h-full w-full top-0 left-0 text-center bg-[#050505] flex flex-col z-10 justify-center md:hidden pt-[40px]'>
             <ul className='flex flex-col gap-8 mb-10'>
               <NavMobileLink href={'#home'} onClick={closeNavbar} delay={0.1}>
                 Home
