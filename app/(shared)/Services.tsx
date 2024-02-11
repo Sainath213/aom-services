@@ -9,7 +9,7 @@ import {
 
 export default function Services() {
   return (
-    <section className='mx-auto max-w-[1336px] px-6 md:px-16'>
+    <section className='mx-auto w-full max-w-[1336px] px-6 md:px-16'>
       <div className='mb-6 text-black md:mb-12'>
         <span className='text-base font-semibold text-[#2F4C77]'>WORKS</span>
         <h2 className='text-4xl font-bold md:text-5xl'>Services</h2>
@@ -57,11 +57,11 @@ interface CardProps {
 
 const Card = ({ icon, text }: CardProps) => {
   return (
-    <li className='flex max-h-16 items-center gap-6'>
+    <li className='flex max-h-16 items-center gap-6 md:items-start'>
       <div className='grid min-h-16 min-w-16 place-items-center rounded-lg bg-black'>
         {icon}
       </div>
-      <span className='max-w-[476px] text-lg font-semibold text-black md:text-2xl'>
+      <span className='max-w-[476px] text-lg font-semibold text-black lg:text-2xl'>
         {text}
       </span>
     </li>
