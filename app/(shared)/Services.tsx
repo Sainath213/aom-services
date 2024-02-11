@@ -11,7 +11,9 @@ export default function Services() {
   return (
     <section className='mx-auto w-full max-w-[1336px] px-6 md:px-16'>
       <div className='mb-6 text-black md:mb-12'>
-        <span className='text-base font-semibold text-[#2F4C77]'>WORKS</span>
+        <span className='font-semibold tracking-[2.6px] text-[#2F4C77]'>
+          WORKS
+        </span>
         <h2 className='text-4xl font-bold md:text-5xl'>Services</h2>
       </div>
       <ul className='grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16'>
