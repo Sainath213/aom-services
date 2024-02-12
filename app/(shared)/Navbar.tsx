@@ -1,14 +1,16 @@
 'use client';
 
-import { MouseEventHandler, useState } from 'react';
+import { MouseEventHandler, useEffect, useState } from 'react';
 import Link from 'next/link';
 import BurguerMobileIcon from '@/public/svg/BurguerMobileIcon';
 import NavbarIcon from '@/public/svg/NavbarIcon';
 import cn from 'clsx';
-import { motion } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const [scrolled, setScrolled] = useState(false); // Add this line
 
   const closeNavbar = () => {
     setMobileOpen(false);
@@ -18,25 +20,56 @@ export default function Navbar() {
     setMobileOpen((prev) => !prev);
   };
 
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.onChange((v) => {
+      setScrolled(v > 0);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, [scrollYProgress]);
+
+  console.log(scrolled);
+
   return (
-    <nav className='fixed left-0 top-0 z-10 w-full'>
-      <div className='mx-auto flex max-w-[1336px] items-center justify-between px-6 pt-7 md:px-16 md:pt-12'>
+    <nav
+      className={cn(
+        'absolute left-0 top-0 z-10 w-full transition-all duration-300 ease-in-out',
+        scrolled && '!fixed bg-[#ffffff] shadow-md',
+      )}
+    >
+      <div
+        className={cn(
+          'mx-auto flex max-w-[1336px] items-center justify-between px-6 pt-7 md:px-16 md:pt-12',
+          scrolled && '!pb-1 !pt-1',
+        )}
+      >
         <Link href={'#home'}>
           <NavbarIcon />
         </Link>
         <ul className='hidden gap-10 text-base text-white md:flex'>
           <li>
-            <a href='#home' className='hover:underline'>
+            <a
+              href='#home'
+              className={cn('hover:underline', scrolled && 'text-[#050505]')}
+            >
               HOME
             </a>
           </li>
           <li>
-            <a href={'#services'} className='hover:underline'>
+            <a
+              href={'#services'}
+              className={cn('hover:underline', scrolled && 'text-[#050505]')}
+            >
               SERVICES
             </a>
           </li>
           <li>
-            <a href={'#contact'} className='hover:underline'>
+            <a
+              href={'#contact'}
+              className={cn('hover:underline', scrolled && 'text-[#050505]')}
+            >
               CONTACT
             </a>
           </li>
@@ -45,7 +78,10 @@ export default function Navbar() {
         <button
           className={cn(
             'burguer-menu z-[9999] inline-grid h-12 w-12 place-items-center md:hidden',
-            mobileOpen ? 'burguer-menu-open' : 'burguer-menu-closed',
+            mobileOpen
+              ? 'burguer-menu-open !stroke-[#050505]'
+              : 'burguer-menu-closed',
+            scrolled ? 'stroke-[#050505]' : 'stroke-[#ffffff]',
           )}
           onClick={toggleMenu}
         >
