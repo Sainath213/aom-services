@@ -32,7 +32,6 @@
   }
 }
 
-
 /* navbar */
 
 .navbar-scrolled-bg {
@@ -43,7 +42,6 @@
 .burguer-menu {
   padding: 6px;
   margin: -6px;
-  margin-left: auto;
 }
 
 .burguer-menu svg * {

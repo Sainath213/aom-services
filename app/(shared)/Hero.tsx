@@ -3,7 +3,7 @@ import hero_background from '@/public/hero_background.png';
 
 export default function Hero() {
   return (
-    <header className='mx-auto w-full max-w-[1472px] px-3 pt-6 md:px-8'>
+    <header className='mx-auto w-full max-w-[1472px] px-3 pt-3 md:px-8 md:pt-6'>
       <div className='relative h-[418px] overflow-hidden rounded-xl md:h-[640px]'>
         <Image
           alt='Manhattan background'
