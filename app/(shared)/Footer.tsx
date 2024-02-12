@@ -1,10 +1,19 @@
+'use client';
+
 import Link from 'next/link';
 import FooterIcon from '@/public/svg/FooterIcon';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
     <footer className='w-full bg-[#0E0E0F]'>
-      <div className='mx-auto w-full max-w-[1336px] px-6 md:px-16'>
+      <motion.div
+        className='mx-auto w-full max-w-[1336px] px-6 md:px-16'
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
+      >
         <div className='flex w-full flex-col items-start justify-between pt-6 md:flex-row md:items-center'>
           <div className='flex flex-col items-start gap-6 pb-6 md:flex-row md:items-center md:gap-12 md:pb-0'>
             <FooterIcon />
@@ -48,7 +57,7 @@ export default function Footer() {
         <span className='flex justify-end pb-6 text-white hover:underline'>
           © AOM. All rights reserved.
         </span>
-      </div>
+      </motion.div>
     </footer>
   );
 }

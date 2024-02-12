@@ -1,8 +1,17 @@
+'use client';
+
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Contact() {
   return (
-    <section className='mx-auto w-full max-w-[1336px] px-6 md:px-16'>
+    <motion.section
+      className='mx-auto w-full max-w-[1336px] px-6 md:px-16'
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.6 }}
+      transition={{ duration: 0.4, delay: 0.1 }}
+    >
       <div className='relative bottom-20 h-0 w-0' id='contact' />
       <span className='font-semibold tracking-[2.6px] text-[#2F4C77]'>
         TALK TO US
@@ -21,6 +30,6 @@ export default function Contact() {
           info@AOMservicesllc.com
         </Link>
       </p>
-    </section>
+    </motion.section>
   );
 }

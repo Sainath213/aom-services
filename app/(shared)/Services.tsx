@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import {
   FileCheck2,
   FilePenLine,
@@ -60,13 +63,19 @@ interface CardProps {
 
 const Card = ({ icon, text }: CardProps) => {
   return (
-    <li className='flex max-h-16 items-center gap-6 md:items-start'>
+    <motion.li
+      className='flex max-h-16 items-center gap-6 md:items-start'
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.6 }}
+      transition={{ duration: 0.4, delay: 0.1 }}
+    >
       <div className='grid min-h-16 min-w-16 place-items-center rounded-lg bg-black'>
         {icon}
       </div>
       <span className='max-w-[476px] text-lg font-semibold text-black lg:text-2xl'>
         {text}
       </span>
-    </li>
+    </motion.li>
   );
 };

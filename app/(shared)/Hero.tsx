@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import hero_background from '@/public/hero_background.png';
+import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
@@ -13,14 +16,19 @@ export default function Hero() {
           className='absolute h-full w-full object-cover'
         />
         <div className='absolute flex h-full w-full flex-col justify-end pb-4 sm:justify-center sm:pb-0'>
-          <div className='mx-auto w-full max-w-[1272px] px-3 md:mb-12 md:px-8'>
+          <motion.div
+            className='mx-auto w-full max-w-[1272px] px-3 md:mb-12 md:px-8'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.25 }}
+          >
             <span className='tracking-[2.6px] text-white underline'>
               AOM Services
             </span>
             <h1 className='max-w-[680px] font-serif text-5xl font-bold text-white sm:text-6xl'>
               Streamline Filings for Your Business
             </h1>
-          </div>
+          </motion.div>
         </div>
       </div>
     </header>
