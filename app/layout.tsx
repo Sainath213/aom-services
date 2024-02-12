@@ -10,6 +10,19 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'AOM Services',
   description: 'AOM Services, your full title company!',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://aomservices.com',
+    images: 'https://aom-services.vercel.app/og.png',
+    title: 'AOM Services',
+  },
+  twitter: {
+    images: 'https://aom-services.vercel.app/og.png',
+    site: 'https://aomservices.com',
+    title: 'AOM Services',
+    card: 'summary',
+  },
 };
 
 export default function RootLayout({
