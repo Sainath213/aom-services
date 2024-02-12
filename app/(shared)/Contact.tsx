@@ -14,7 +14,7 @@ export default function Contact() {
         <Link
           target='_blank'
           rel='noopener noreferrer'
-          href='mailto://info@AOMservicesllc.com'
+          href='mailto:info@AOMservicesllc.com'
           className='font-bold underline'
         >
           info@AOMservicesllc.com
