@@ -16,7 +16,7 @@ export default function Services() {
       <div className='relative bottom-20 h-0 w-0' id='services' />
       <div className='mb-6 text-black md:mb-12'>
         <span className='font-semibold tracking-[2.6px] text-[#2F4C77]'>
-          WORKS
+          WORK
         </span>
         <h2 className='font-serif text-4xl font-bold md:text-5xl'>Services</h2>
       </div>
