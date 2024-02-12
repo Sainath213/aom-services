@@ -39,7 +39,7 @@ export default function Services() {
         />
         <Card
           icon={<FileSearch2 size={32} color='#7AACF5' />}
-          text={'Certificate of Good Standing & Certified Copies'}
+          text={'Certificate of Good Standings & Certified Copies'}
         />
         <Card
           icon={<ScrollText size={32} color='#7AACF5' />}
