@@ -5,7 +5,7 @@ import Link from 'next/link';
 import BurguerMobileIcon from '@/public/svg/BurguerMobileIcon';
 import NavbarIcon from '@/public/svg/NavbarIcon';
 import cn from 'clsx';
-import { motion, useScroll } from 'framer-motion';
+import { AnimatePresence, motion, useScroll } from 'framer-motion';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -86,21 +86,30 @@ export default function Navbar() {
           <BurguerMobileIcon />
         </button>
       </div>
-      {mobileOpen ? (
-        <div className='fixed left-0 top-0 z-20 flex h-full w-full flex-col justify-center bg-white pt-10 text-center md:hidden'>
-          <ul className='mb-10 flex flex-col gap-8'>
-            <NavMobileLink href='#home' onClick={closeNavbar} delay={0.1}>
-              Home
-            </NavMobileLink>
-            <NavMobileLink href='#services' onClick={closeNavbar} delay={0.2}>
-              Services
-            </NavMobileLink>
-            <NavMobileLink href='#contact' onClick={closeNavbar} delay={0.3}>
-              Contact
-            </NavMobileLink>
-          </ul>
-        </div>
-      ) : null}
+      <AnimatePresence>
+        {mobileOpen ? (
+          <motion.div
+            className='fixed left-0 top-0 z-20 flex h-full w-full flex-col justify-center bg-white pt-10 text-center md:hidden'
+            initial={{
+              opacity: 0,
+            }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <ul className='mb-10 flex flex-col gap-8'>
+              <NavMobileLink href='#home' onClick={closeNavbar} delay={0.1}>
+                Home
+              </NavMobileLink>
+              <NavMobileLink href='#services' onClick={closeNavbar} delay={0.2}>
+                Services
+              </NavMobileLink>
+              <NavMobileLink href='#contact' onClick={closeNavbar} delay={0.3}>
+                Contact
+              </NavMobileLink>
+            </ul>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </nav>
   );
 }
