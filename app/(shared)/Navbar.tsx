@@ -30,8 +30,6 @@ export default function Navbar() {
     };
   }, [scrollYProgress]);
 
-  console.log(scrolled);
-
   return (
     <nav
       className={cn(
