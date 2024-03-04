@@ -47,9 +47,14 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <div className='cursor-not-allowed rounded-lg bg-[#0C4AA6] px-6 py-2 font-bold line-through'>
+              <Link
+                href='mailto:info@AOMservicesllc.com?subject=New%20Order'
+                className='rounded-lg bg-[#0C4AA6] px-6 py-2 font-bold'
+                rel='noopener noreferrer'
+                target='_blank'
+              >
                 New Order
-              </div>
+              </Link>
             </li>
           </ul>
         </div>
