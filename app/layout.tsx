@@ -3,21 +3,21 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import ClientNavbar from './ClientNavbar';
 
-
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'AOM Services',
   description: 'AOM Services, your full title company!',
+  metadataBase: new URL('https://aomservices.com'), 
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://aomservices.com', 
-    images: 'https://aom-services.vercel.app/og.png',
+    url: '/og.png', 
     title: 'AOM Services',
+    images: '/og.png',
   },
   twitter: {
-    images: 'https://aom-services.vercel.app/og.png',
+    images: '/og.png', 
     site: 'https://aomservices.com',
     title: 'AOM Services',
     card: 'summary',
@@ -39,7 +39,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <ClientNavbar/>
+        <ClientNavbar />
         <main>{children}</main>
       </body>
     </html>
