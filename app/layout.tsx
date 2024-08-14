@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-
 import './globals.css';
+import ClientNavbar from './ClientNavbar';
 
-import Navbar from '@/app/(shared)/Navbar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://aomservices.com',
+    url: 'https://aomservices.com', 
     images: 'https://aom-services.vercel.app/og.png',
     title: 'AOM Services',
   },
@@ -27,21 +26,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <head>
         {/* fonts */}
         <link
-          href='https://api.fontshare.com/v2/css?f[]=recia@700,400&display=swap'
-          rel='stylesheet'
+          href="https://api.fontshare.com/v2/css?f[]=recia@700,400&display=swap"
+          rel="stylesheet"
         />
       </head>
       <body className={inter.className}>
-        <Navbar />
-        {children}
+        <ClientNavbar/>
+        <main>{children}</main>
       </body>
     </html>
   );

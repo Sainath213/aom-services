@@ -10,7 +10,7 @@ import { AnimatePresence, motion, useScroll } from 'framer-motion';
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { scrollYProgress } = useScroll();
-  const [scrolled, setScrolled] = useState(false); // Add this line
+  const [scrolled, setScrolled] = useState(false);
 
   const closeNavbar = () => {
     setMobileOpen(false);
@@ -43,33 +43,34 @@ export default function Navbar() {
           scrolled && '!pb-1 !pt-1',
         )}
       >
-        <Link href={'#home'}>
+        <Link href="/">
           <NavbarIcon />
         </Link>
-        <ul className='hidden gap-10 text-base text-white md:flex'>
+        <ul className="hidden gap-10 text-base text-white md:flex">
           <li>
-            <a
-              href='#home'
-              className={cn('hover:underline', scrolled && 'text-[#050505]')}
-            >
+            <Link href="/" className={cn('hover:underline', scrolled && 'text-[#050505]')}>
               HOME
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href={'#services'}
-              className={cn('hover:underline', scrolled && 'text-[#050505]')}
-            >
+            <Link href="/#services" className={cn('hover:underline', scrolled && 'text-[#050505]')}>
               SERVICES
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href={'#contact'}
-              className={cn('hover:underline', scrolled && 'text-[#050505]')}
-            >
+            <Link href="/#contact" className={cn('hover:underline', scrolled && 'text-[#050505]')}>
               CONTACT
-            </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/llc" className={cn('hover:underline', scrolled && 'text-[#050505]')}>
+              LLC FORM
+            </Link>
+          </li>
+          <li>
+            <Link href="/fincen" className={cn('hover:underline', scrolled && 'text-[#050505]')}>
+              FINCEN FORM
+            </Link>
           </li>
         </ul>
         {/* mobile trigger button */}
@@ -89,22 +90,28 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen ? (
           <motion.div
-            className='fixed left-0 top-0 z-20 flex h-full w-full flex-col justify-center bg-white pt-10 text-center md:hidden'
+            className="fixed left-0 top-0 z-20 flex h-full w-full flex-col justify-center bg-white pt-10 text-center md:hidden"
             initial={{
               opacity: 0,
             }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <ul className='mb-10 flex flex-col gap-8'>
-              <NavMobileLink href='#home' onClick={closeNavbar} delay={0.1}>
+            <ul className="mb-10 flex flex-col gap-8">
+              <NavMobileLink href="/" onClick={closeNavbar} delay={0.1}>
                 Home
               </NavMobileLink>
-              <NavMobileLink href='#services' onClick={closeNavbar} delay={0.2}>
+              <NavMobileLink href="/#services" onClick={closeNavbar} delay={0.2}>
                 Services
               </NavMobileLink>
-              <NavMobileLink href='#contact' onClick={closeNavbar} delay={0.3}>
+              <NavMobileLink href="/#contact" onClick={closeNavbar} delay={0.3}>
                 Contact
+              </NavMobileLink>
+              <NavMobileLink href="/llc" onClick={closeNavbar} delay={0.4}>
+                LLC Form
+              </NavMobileLink>
+              <NavMobileLink href="/fincen" onClick={closeNavbar} delay={0.5}>
+                FinCen Form
               </NavMobileLink>
             </ul>
           </motion.div>
@@ -141,13 +148,9 @@ const NavMobileLink = ({
         delay: delay,
       }}
     >
-      <a
-        href={href}
-        className='font-header inline-block text-[54px] font-semibold text-[#050505]'
-        onClick={onClick}
-      >
+      <Link href={href} className="font-header inline-block text-[54px] font-semibold text-[#050505]" onClick={onClick}>
         {children}
-      </a>
+      </Link>
     </motion.li>
   );
 };
