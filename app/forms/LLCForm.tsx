@@ -26,7 +26,7 @@ const LLCForm: React.FC = () => {
     }
 
     if (template_id) {
-      emailjs.sendForm('service_b680i9p', template_id, event.currentTarget, '6WTmCe0O-HEglaZFI')
+      emailjs.sendForm('service_2qfl8vg', template_id, event.currentTarget, '6WTmCe0O-HEglaZFI')
         .then((result) => {
           console.log('SUCCESS!', result.status, result.text);
           alert('Form submitted successfully!');
@@ -91,8 +91,8 @@ const LLCForm: React.FC = () => {
                 <input type="text" name="responsibleParty" className="p-2 border border-gray-300 rounded-lg" />
               </div>
               <div className="flex flex-col gap-4">
-                <label className="block text-lg font-semibold text-gray-700">Member's SSN:</label>
-                <input type="text" name="ssn" className="p-2 border border-gray-300 rounded-lg" />
+              <label className="block text-lg font-semibold text-gray-700">Member&apos;s SSN:</label>
+              <input type="text" name="ssn" className="p-2 border border-gray-300 rounded-lg" />
               </div>
               <div className="flex flex-col gap-4">
                 <label className="block text-lg font-semibold text-gray-700">Office Address:</label>

@@ -62,7 +62,7 @@ const FinCen: React.FC = () => {
       liabilityAcknowledgment: data.liabilityAcknowledgment ? 'Yes' : 'No'
     };
     
-      emailjs.send('service_b680i9p', 'template_mvrs24t', emailData, '6WTmCe0O-HEglaZFI')
+      emailjs.send('service_2qfl8vg', 'template_mvrs24t', emailData, '6WTmCe0O-HEglaZFI')
       .then(response => {
         console.log('SUCCESS!', response.status, response.text);
         alert('Form submitted successfully!');
@@ -153,7 +153,7 @@ const FinCen: React.FC = () => {
             <h2 className="text-xl font-semibold text-gray-700 mb-4">Beneficial Owner Information</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block mb-1 font-bold text-gray-700">Last Name or Entity's Legal Name</label>
+              <label className="block mb-1 font-bold text-gray-700">Last Name or Entity&apos;s Legal Name</label>
                 <input {...register('beneficialOwnerLastName', { required: true })} className="w-full p-2 border border-gray-300 rounded-lg" />
                 {errors.beneficialOwnerLastName && <p className="text-red-500">This field is required</p>}
               </div>
@@ -207,7 +207,7 @@ const FinCen: React.FC = () => {
           
           {/** Beneficial Owner's Identification Info */}
           <section className="border-t border-gray-300 pt-6">
-            <h2 className="text-xl font-semibold text-gray-700 mb-4">Beneficial Owner's Identification Info</h2>
+          <h2 className="text-xl font-semibold text-gray-700 mb-4">Beneficial Owner&apos;s Identification Info</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block mb-1 font-bold text-gray-700">Identifying Document Type</label>
