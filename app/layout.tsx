@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://aomservices.com', 
+    url: 'https://aomservicesllc.com', 
     images: 'https://aom-services.vercel.app/og.png',
     title: 'AOM Services',
   },
   twitter: {
     images: 'https://aom-services.vercel.app/og.png',
-    site: 'https://aomservices.com',
+    site: 'https://aomservicesllc.com',
     title: 'AOM Services',
     card: 'summary',
   },
