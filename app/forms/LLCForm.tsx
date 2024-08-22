@@ -18,12 +18,12 @@ const LLCForm: React.FC = () => {
     businessActivity: '',
     product: '',
     stateOfFormation: '',
-    registeredAgent: false,
-    memberManaged: false,
+    registeredAgent: '',
+    memberManaged: '',
     otherState: '',
-    corporateKit: false,
-    llcPublished: false,
-    federalTaxID: false,
+    corporateKit: '',
+    llcPublished: '',
+    federalTaxID: '',
     memberManagerName: '',
     phoneNumber: ''
   });
@@ -44,7 +44,7 @@ const LLCForm: React.FC = () => {
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = event.target;
-    setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
+    setFormData({ ...formData, [name]: type === 'checkbox' ? (checked ? 'Yes' : 'No') : value });
   };
 
   const handlePdfUpload = async (file: File) => {
@@ -124,7 +124,7 @@ const LLCForm: React.FC = () => {
     updatedFormData.entityName = parsedData['NAME OF ENTITY'] || '';
     updatedFormData.serviceAddress = parsedData['ADDRESS'] || '';
     updatedFormData.responsibleParty = parsedData['Responsible Party (Individual)'] || '';
-    updatedFormData.ssn = parsedData['MEMBER&apos;S SSN'] || '';
+    updatedFormData.ssn = parsedData['MEMBER SSN'] || '';
     updatedFormData.officeAddress = parsedData['PRIMARY OFFICE ADDRESS'] || '';
     updatedFormData.businessActivity = parsedData['PRINCIPLE BUSINESS ACTIVITY (IE REAL ESTATE)'] || '';
     updatedFormData.product = parsedData['PRINCIPLE PRODUCT (IE RESIDENTIAL RENTALS)'] || '';
@@ -132,11 +132,12 @@ const LLCForm: React.FC = () => {
     updatedFormData.numberOfMembers = parsedData['NUMBER OF MEMBERS'] || '';
     updatedFormData.phoneNumber = parsedData['PHONE NUMBER'] || '';
     updatedFormData.otherState = parsedData['DO YOU WANT THIS ENTITY REGISTERED IN ANOTHER STATE?'] || '';
-    updatedFormData.memberManaged = parsedData['IS THIS LLC MEMBER OR MANAGER MANAGED'] === 'Member' ? true : false;
-    updatedFormData.corporateKit = parsedData['WOULD YOU LIKE A CORPORATE KIT'] === 'Yes' ? true : false;
-    updatedFormData.registeredAgent = parsedData['WOULD YOU LIKE US TO PROVIDE A REGISTERED AGENT?'] === 'Yes' ? true : false;
-    updatedFormData.federalTaxID = parsedData['WOULD YOU LIKE A FEDERAL TAX ID NUMBER?'] === 'Yes' ? true : false;
+    updatedFormData.memberManaged = parsedData['IS THIS LLC MEMBER OR MANAGER MANAGED'] === 'Member' ? 'Member' : 'Manager';
+    updatedFormData.corporateKit = parsedData['WOULD YOU LIKE A CORPORATE KIT'] === 'Yes' ? 'Yes' : 'No';
+    updatedFormData.registeredAgent = parsedData['WOULD YOU LIKE US TO PROVIDE A REGISTERED AGENT?'] === 'Yes' ? 'Yes' : 'No';
+    updatedFormData.federalTaxID = parsedData['WOULD YOU LIKE A FEDERAL TAX ID NUMBER?'] === 'Yes' ? 'Yes' : 'No';
     updatedFormData.secondOption = parsedData['SECOND OPTION'] || '';
+    updatedFormData.memberManagerName = parsedData['MemberManager Name'] || '';
 
     setFormData(updatedFormData);
   };
@@ -215,37 +216,108 @@ const LLCForm: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col gap-4">
-                <label className="block text-lg font-semibold text-gray-700">Service of Process Address:</label>
+                <label className="block text-lg font-semibold text-gray-700">Primary Office Address:</label>
                 <input
                   type="text"
-                  name="serviceAddress"
-                  value={formData.serviceAddress}
+                  name="officeAddress"
+                  value={formData.officeAddress}
                   onChange={handleInputChange}
                   className="p-2 border border-gray-300 rounded-lg"
                 />
               </div>
-              <div className="flex items-center gap-4">
-                <label className="block text-lg font-semibold text-gray-700">Would you like your LLC published?</label>
+              <div className="flex flex-col gap-4">
+                <label className="block text-lg font-semibold text-gray-700">State of Formation:</label>
                 <input
-                  type="checkbox"
-                  name="llcPublished"
-                  checked={formData.llcPublished}
+                  type="text"
+                  name="stateOfFormation"
+                  value={formData.stateOfFormation}
                   onChange={handleInputChange}
-                  className="h-5 w-5"
-                />
-              </div>
-              <div className="flex items-center gap-4">
-                <label className="block text-lg font-semibold text-gray-700">Would you like a Federal Tax ID Number?</label>
-                <input
-                  type="checkbox"
-                  name="federalTaxID"
-                  checked={formData.federalTaxID}
-                  onChange={handleInputChange}
-                  className="h-5 w-5"
+                  className="p-2 border border-gray-300 rounded-lg"
                 />
               </div>
               <div className="flex flex-col gap-4">
-                <label className="block text-lg font-semibold text-gray-700">Number of members:</label>
+                <label className="block text-lg font-semibold text-gray-700">Would you like us to provide a Registered Agent?</label>
+                <div className="flex items-center gap-4">
+                  <label>
+                    <input
+                      type="radio"
+                      name="registeredAgent"
+                      value="Yes"
+                      checked={formData.registeredAgent === 'Yes'}
+                      onChange={handleInputChange}
+                      className="mr-2"
+                    />
+                    Yes
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="registeredAgent"
+                      value="No"
+                      checked={formData.registeredAgent === 'No'}
+                      onChange={handleInputChange}
+                      className="mr-2"
+                    />
+                    No
+                  </label>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4">
+                <label className="block text-lg font-semibold text-gray-700">Is this LLC Member or Manager Managed?</label>
+                <div className="flex items-center gap-4">
+                  <label>
+                    <input
+                      type="radio"
+                      name="memberManaged"
+                      value="Member"
+                      checked={formData.memberManaged === 'Member'}
+                      onChange={handleInputChange}
+                      className="mr-2"
+                    />
+                    Member
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="memberManaged"
+                      value="Manager"
+                      checked={formData.memberManaged === 'Manager'}
+                      onChange={handleInputChange}
+                      className="mr-2"
+                    />
+                    Manager
+                  </label>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4">
+                <label className="block text-lg font-semibold text-gray-700">Would you like a Federal Tax ID Number?</label>
+                <div className="flex items-center gap-4">
+                  <label>
+                    <input
+                      type="radio"
+                      name="federalTaxID"
+                      value="Yes"
+                      checked={formData.federalTaxID === 'Yes'}
+                      onChange={handleInputChange}
+                      className="mr-2"
+                    />
+                    Yes
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="federalTaxID"
+                      value="No"
+                      checked={formData.federalTaxID === 'No'}
+                      onChange={handleInputChange}
+                      className="mr-2"
+                    />
+                    No
+                  </label>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4">
+                <label className="block text-lg font-semibold text-gray-700">Number of Members:</label>
                 <input
                   type="number"
                   name="numberOfMembers"
@@ -255,11 +327,11 @@ const LLCForm: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col gap-4">
-                <label className="block text-lg font-semibold text-gray-700">Responsible Party (Individual):</label>
+                <label className="block text-lg font-semibold text-gray-700">Member/Manager Name (1):</label>
                 <input
                   type="text"
-                  name="responsibleParty"
-                  value={formData.responsibleParty}
+                  name="memberManagerName"
+                  value={formData.memberManagerName}
                   onChange={handleInputChange}
                   className="p-2 border border-gray-300 rounded-lg"
                 />
@@ -275,11 +347,11 @@ const LLCForm: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col gap-4">
-                <label className="block text-lg font-semibold text-gray-700">Office Address:</label>
+                <label className="block text-lg font-semibold text-gray-700">Phone Number:</label>
                 <input
                   type="text"
-                  name="officeAddress"
-                  value={formData.officeAddress}
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
                   onChange={handleInputChange}
                   className="p-2 border border-gray-300 rounded-lg"
                 />
@@ -303,6 +375,43 @@ const LLCForm: React.FC = () => {
                   onChange={handleInputChange}
                   className="p-2 border border-gray-300 rounded-lg"
                 />
+              </div>
+              <div className="flex flex-col gap-4">
+                <label className="block text-lg font-semibold text-gray-700">Do you want this entity registered in another state?</label>
+                <input
+                  type="text"
+                  name="otherState"
+                  value={formData.otherState}
+                  onChange={handleInputChange}
+                  className="p-2 border border-gray-300 rounded-lg"
+                />
+              </div>
+              <div className="flex flex-col gap-4">
+                <label className="block text-lg font-semibold text-gray-700">Would you like a Corporate Kit?</label>
+                <div className="flex items-center gap-4">
+                  <label>
+                    <input
+                      type="radio"
+                      name="corporateKit"
+                      value="Yes"
+                      checked={formData.corporateKit === 'Yes'}
+                      onChange={handleInputChange}
+                      className="mr-2"
+                    />
+                    Yes
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="corporateKit"
+                      value="No"
+                      checked={formData.corporateKit === 'No'}
+                      onChange={handleInputChange}
+                      className="mr-2"
+                    />
+                    No
+                  </label>
+                </div>
               </div>
               {/* Upload file input */}
               <div className="flex flex-col gap-4">
