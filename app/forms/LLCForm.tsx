@@ -124,7 +124,7 @@ const LLCForm: React.FC = () => {
     updatedFormData.entityName = parsedData['NAME OF ENTITY'] || '';
     updatedFormData.serviceAddress = parsedData['ADDRESS'] || '';
     updatedFormData.responsibleParty = parsedData['Responsible Party (Individual)'] || '';
-    updatedFormData.ssn = parsedData["MEMBER'S SSN"] || '';
+    updatedFormData.ssn = parsedData['MEMBER&apos;S SSN'] || '';
     updatedFormData.officeAddress = parsedData['PRIMARY OFFICE ADDRESS'] || '';
     updatedFormData.businessActivity = parsedData['PRINCIPLE BUSINESS ACTIVITY (IE REAL ESTATE)'] || '';
     updatedFormData.product = parsedData['PRINCIPLE PRODUCT (IE RESIDENTIAL RENTALS)'] || '';
@@ -135,7 +135,7 @@ const LLCForm: React.FC = () => {
     updatedFormData.memberManaged = parsedData['IS THIS LLC MEMBER OR MANAGER MANAGED'] === 'Member' ? true : false;
     updatedFormData.corporateKit = parsedData['WOULD YOU LIKE A CORPORATE KIT'] === 'Yes' ? true : false;
     updatedFormData.registeredAgent = parsedData['WOULD YOU LIKE US TO PROVIDE A REGISTERED AGENT?'] === 'Yes' ? true : false;
-    updatedFormData.federalTaxID = parsedData['WOULD YOU LIKED A FEDERAL TAX ID NUMBER?'] === 'Yes' ? true : false;
+    updatedFormData.federalTaxID = parsedData['WOULD YOU LIKE A FEDERAL TAX ID NUMBER?'] === 'Yes' ? true : false;
     updatedFormData.secondOption = parsedData['SECOND OPTION'] || '';
 
     setFormData(updatedFormData);
@@ -265,7 +265,7 @@ const LLCForm: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col gap-4">
-                <label className="block text-lg font-semibold text-gray-700">Member's SSN:</label>
+                <label className="block text-lg font-semibold text-gray-700">Member&apos;s SSN:</label>
                 <input
                   type="text"
                   name="ssn"
