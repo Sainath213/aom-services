@@ -14,9 +14,9 @@ const LLCNavBar: React.FC = () => {
         />
       </div>
       <div className="flex gap-5 pr-8">
-        {/* <Link href="/login" className="text-blue-500 text-base hover:text-blue-700 transition-colors">
-          Login
-        </Link> */}
+        <Link href="/" className="text-blue-500 text-base hover:text-blue-700 transition-colors">
+          Home
+        </Link>
         <Link href="/fincen" className="text-blue-500 text-base hover:text-blue-700 transition-colors">
           FinCen Form
         </Link>
