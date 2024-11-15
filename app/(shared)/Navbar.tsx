@@ -64,12 +64,12 @@ export default function Navbar() {
           </li>
           <li>
             <Link href="/llc" className={cn('hover:underline', scrolled && 'text-[#050505]')}>
-              LLC FORM
+              LLC Formation
             </Link>
           </li>
           <li>
             <Link href="/fincen" className={cn('hover:underline', scrolled && 'text-[#050505]')}>
-              FINCEN FORM
+              BOI Report
             </Link>
           </li>
         </ul>

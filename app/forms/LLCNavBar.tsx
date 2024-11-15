@@ -18,7 +18,7 @@ const LLCNavBar: React.FC = () => {
           Home
         </Link>
         <Link href="/fincen" className="text-blue-500 text-base hover:text-blue-700 transition-colors">
-          FinCen Form
+          BOI Report
         </Link>
       </div>
     </nav>

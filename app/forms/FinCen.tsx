@@ -1,5 +1,4 @@
 "use client"; 
-
 import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
@@ -12,6 +11,10 @@ const FinCen: React.FC = () => {
   });
 
   const [formData, setFormData] = useState({
+    submitterFirstName: '',
+    submitterLastName: '',
+    submitterPhoneNumber: '',
+    submitterEmail: '',
     reportingCompanyLegalName: '',
     reportingCompanyAlternateName: '',
     taxIdentificationType: '',
@@ -46,9 +49,10 @@ const FinCen: React.FC = () => {
 
   const onSubmit: SubmitHandler<typeof formData> = (data) => {
     const requiredFields = [
+      'submitterFirstName', 'submitterLastName', 'submitterPhoneNumber', 'submitterEmail',
       'reportingCompanyLegalName', 'reportingCompanyAlternateName', 'taxIdentificationType', 'taxIdentificationNumber',
       'countryJurisdiction', 'stateOfFormation', 'address', 'city', 'usOrTerritory', 'state', 'zipCode',
-      'beneficialOwnerLastName', 'beneficialOwnerFirstName', 'beneficialOwnerMiddleName', 'beneficialOwnerSuffix',
+      'beneficialOwnerLastName', 'beneficialOwnerFirstName',
       'beneficialOwnerDOB', 'beneficialOwnerAddress', 'beneficialOwnerCity', 'beneficialOwnerCountryJurisdiction',
       'beneficialOwnerState', 'beneficialOwnerZip', 'identifyingDocumentType', 'identifyingDocumentNumber',
       'identifyingDocumentIssuingJurisdiction', 'identifyingDocumentCountry', 'identifyingDocumentExpirationDate'
@@ -63,7 +67,7 @@ const FinCen: React.FC = () => {
 
     const emailData = {
       ...data,
-      liabilityAcknowledgment: data.liabilityAcknowledgment ? 'Yes' : 'No'
+      liabilityAcknowledgment: data.liabilityAcknowledgment ? 'Yes' : 'No',
     };
 
     emailjs.send('service_2qfl8vg', 'template_mvrs24t', emailData, '6WTmCe0O-HEglaZFI')
@@ -201,6 +205,31 @@ const FinCen: React.FC = () => {
         <h1 className="text-center text-2xl font-bold text-gray-800 mb-6">Beneficial Ownership Information Report Form</h1>
         {loadingMessage && <p className="text-center text-blue-500">{loadingMessage}</p>} {/* Display message */}
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
+        <section className="border-t border-gray-300 pt-6">
+            <h2 className="text-xl font-semibold text-gray-700 mb-4">Submitter Information</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block mb-1 font-bold text-gray-700">First Name</label>
+                <input {...register('submitterFirstName', { required: true })} className="w-full p-2 border border-gray-300 rounded-lg" />
+                {errors.submitterFirstName && <p className="text-red-500">This field is required</p>}
+              </div>
+              <div>
+                <label className="block mb-1 font-bold text-gray-700">Last Name</label>
+                <input {...register('submitterLastName', { required: true })} className="w-full p-2 border border-gray-300 rounded-lg" />
+                {errors.submitterLastName && <p className="text-red-500">This field is required</p>}
+              </div>
+              <div>
+                <label className="block mb-1 font-bold text-gray-700">Phone Number</label>
+                <input type="tel" {...register('submitterPhoneNumber', { required: true })} className="w-full p-2 border border-gray-300 rounded-lg" />
+                {errors.submitterPhoneNumber && <p className="text-red-500">This field is required</p>}
+              </div>
+              <div>
+                <label className="block mb-1 font-bold text-gray-700">Email</label>
+                <input type="email" {...register('submitterEmail', { required: true })} className="w-full p-2 border border-gray-300 rounded-lg" />
+                {errors.submitterEmail && <p className="text-red-500">This field is required</p>}
+              </div>
+            </div>
+          </section>
           <section className="border-t border-gray-300 pt-6">
             <h2 className="text-xl font-semibold text-gray-700 mb-4">Reporting Company Information</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -283,14 +312,15 @@ const FinCen: React.FC = () => {
               </div>
               <div>
                 <label className="block mb-1 font-bold text-gray-700">Middle Name</label>
-                <input {...register('beneficialOwnerMiddleName', { required: true })} className="w-full p-2 border border-gray-300 rounded-lg" />
+                <input {...register('beneficialOwnerMiddleName')} className="w-full p-2 border border-gray-300 rounded-lg" />
                 {errors.beneficialOwnerMiddleName && <p className="text-red-500">This field is required</p>}
               </div>
               <div>
                 <label className="block mb-1 font-bold text-gray-700">Suffix</label>
-                <input {...register('beneficialOwnerSuffix', { required: true })} className="w-full p-2 border border-gray-300 rounded-lg" />
+                <input {...register('beneficialOwnerSuffix')} className="w-full p-2 border border-gray-300 rounded-lg" />
                 {errors.beneficialOwnerSuffix && <p className="text-red-500">This field is required</p>}
               </div>
+
               <div>
                 <label className="block mb-1 font-bold text-gray-700">Date of Birth</label>
                 <input type="date" {...register('beneficialOwnerDOB', { required: true })} className="w-full p-2 border border-gray-300 rounded-lg" />

@@ -157,7 +157,7 @@ const LLCForm: React.FC = () => {
     }
 
     if (template_id) {
-      emailjs.sendForm('service_b680i9p', template_id, event.currentTarget, '6WTmCe0O-HEglaZFI')
+      emailjs.sendForm('service_2qfl8vg', template_id, event.currentTarget, '6WTmCe0O-HEglaZFI')
         .then((result) => {
           console.log('SUCCESS!', result.status, result.text);
           alert('Form submitted successfully!');

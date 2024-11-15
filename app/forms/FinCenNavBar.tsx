@@ -18,7 +18,7 @@ const FinCenNavBar: React.FC = () => {
       Home
     </Link>
     <Link href="/llc" className="text-blue-500 text-base hover:text-blue-700 transition-colors">
-      LLC Form
+      LLC Formation
     </Link>
   </div>
 </nav>
