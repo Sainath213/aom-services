@@ -21,13 +21,12 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    const unsubscribe = scrollYProgress.onChange((v) => {
+    const unsubscribe = scrollYProgress.on("change", (v) => {
       setScrolled(v > 0);
     });
-
-    return () => {
-      unsubscribe();
-    };
+  
+    return () => unsubscribe();
+    
   }, [scrollYProgress]);
 
   return (

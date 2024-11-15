@@ -12,6 +12,7 @@ export default function Hero() {
         <Image
           alt='Manhattan background'
           src={hero_background}
+          priority
           quality={100}
           className='absolute h-full w-full object-cover'
         />

@@ -9,8 +9,8 @@ const LLCNavBar: React.FC = () => {
         <Image 
           src="/images/Screenshot%202024-07-04%20at%204.17.35%20PM.png" 
           alt="Logo" 
-          layout="fill" 
-          objectFit="contain" 
+          fill 
+          style={{ objectFit: 'contain' }}
         />
       </div>
       <div className="flex gap-5 pr-8">
